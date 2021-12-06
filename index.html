@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css"
+        integrity="sha512-r/Gan7PMSRovDus++vDS2Ayutc/cSdl268u047n4z+k7GYuR7Hiw71FsT3QQxdKJBVHYttOJ6IGLnlM9IoMToQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Weather App</title>
+</head>
+
+<body>
+    
+    <nav class="navbar fixed-top side m-0 p-0">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a href="#">
+                    <img src="images/menu.png" class="navicon">
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#">
+                    <img src="images/map-marker.png" class="navicon">
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#">
+                    <img src="images/graph.png" class="navicon">
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#">
+                    <img src="images/statistics.png" class="navicon">
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#">
+                    <img src="images/calendar.png" class="navicon">
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#">
+                    <img src="images/gear.png" class="navicon">
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col p-3 pt-4 ml-0 offset-lg-1">
+                <div id="dashboard">
+                    <div class="row mx-0 px-0">
+                        <div class="col mx-0 px-0">
+                            <h1 class="h1 mx-0 px-0">07:32 AM</h1>
+                        </div>
+                        <div class="col-auto mt-4">
+                            <div class="toggle-button-cover">
+                                <div class="button-cover">
+                                  <div class="button toggle-switch" id="theme-switch">
+                                    <input type="checkbox" class="checkbox">
+                                    <div class="knobs">
+                                      <span><i class="fa fa-sun-o"></i></span>
+                                    </div>
+                                    <div class="layer"></div>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mx-0 px-0">
+                        <span class="h6 mx-0 px-0">Wednesday, 14 April, 2021</span>
+                        <h2 class="h2 mt-3 mx-0 px-0"><i class="wi wi-day-sunny"></i> Good morning, Samuel!</h2>
+                    </div>
+                    
+                    <div class="row mx-0 my-2 px-0 justify-content-between">
+                        <div class="weather-card text-center col">
+                            <img src="images/weather/34.png">
+                            <h6>Sun</h6>
+                            <h6>28°</h6>
+                        </div>
+                        <div class="weather-card text-center col">
+                            <img src="images/weather/27.png">
+                            <h6>Mon</h6>
+                            <h6>17°</h6>
+                        </div>
+                        <div class="weather-card text-center col">
+                            <img src="images/weather/8.png">
+                            <h6>Tue</h6>
+                            <h6>20°</h6>
+                        </div>
+                        <div class="weather-card text-center col current-day">
+                            <img src="images/weather/12.png">
+                            <h6>Wed</h6>
+                            <h6>29°</h6>
+                        </div>
+                        <div class="weather-card text-center col">
+                            <img src="images/weather/9.png">
+                            <h6>Thu</h6>
+                            <h6>22°</h6>
+                        </div>
+                        <div class="weather-card text-center col">
+                            <img src="images/weather/14.png">
+                            <h6>Fri</h6>
+                            <h6>16°</h6>
+                        </div>
+                        <div class="weather-card text-center col">
+                            <img src="images/weather/28.png">
+                            <h6>Sat</h6>
+                            <h6>21°</h6>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-start">
+                        <div class="col">
+                            <div class="row m-0 p-0 mt-3">
+                                <div id="air-quality-index" class=" container cd px-4 py-3">
+                                    <div class="row mb-3">
+                                        <h5 class="h5 col-6">Air Quality Index</h5>
+                                        <div class="col text-end gray-text">
+                                            <i class="fa fa-map-marker blue"></i> Uttara, Dhaka <i
+                                                class="fa fa-caret-down blue"></i>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <i class="wi wi-strong-wind h4 col-1 m-2 green"></i>
+                                        <div class="col">
+                                            <div class="h6 green">Good</div>
+                                            <div class="gray-text">A perfect day for a walk!</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <button class="btn">Refresh</button>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-around">
+                                        <div class="air-card col">
+                                            <h5>9.3</h5>
+                                            <h6>PM2</h6>
+                                        </div>
+                                        <div class="air-card col">
+                                            <h5>12.2</h5>
+                                            <h6>PM10</h6>
+                                        </div>
+                                        <div class="air-card col">
+                                            <h5>4.8</h5>
+                                            <h6>SO<sub>2</sub></h6>
+                                        </div>
+                                        <div class="air-card col">
+                                            <h5>4.6</h5>
+                                            <h6>NO<sub>2</sub></h6>
+                                        </div>
+                                        <div class="air-card col">
+                                            <h5>6.5</h5>
+                                            <h6>O<sub>3</sub></h6>
+                                        </div>
+                                        <div class="air-card col">
+                                            <h5>0.9</h5>
+                                            <h6>CO</h6>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div id="monthly-rainfall" class="container cd px-4 py-3 mt-3">
+                                    <div class="row mb-4">
+                                        <h5 class="h5 col">Monthly Rainfall</h5>
+                                        <div class="col-auto gray-text">
+                                            <i class="fa fa-square blue"></i> Rain
+                                        </div>
+                                        <div class="col-auto gray-text">
+                                            <i class="fa fa-square yellow"></i> Sun
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3 justify-content-around">
+                                        <div class="col-auto p-0">
+                                            <div id="mr-bar-1" class="bar">
+                                                <div class="rain-fill" style="height: 15%;"></div>
+                                                <div class="sun-fill" style="height: 50%;"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto p-0">
+                                            <div id="mr-bar-2" class="bar">
+                                                <div class="rain-fill" style="height: 50%;"></div>
+                                                <div class="sun-fill" style="height: 30%;"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto p-0">
+                                            <div id="mr-bar-3" class="bar">
+                                                <div class="rain-fill" style="height: 20%;"></div>
+                                                <div class="sun-fill" style="height: 40%;"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto p-0">
+                                            <div id="mr-bar-4" class="bar">
+                                                <div class="rain-fill" style="height: 10%;"></div>
+                                                <div class="sun-fill" style="height: 40%;"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto p-0">
+                                            <div id="mr-bar-5" class="bar">
+                                                <div class="rain-fill" style="height: 40%;"></div>
+                                                <div class="sun-fill" style="height: 50%;"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto p-0">
+                                            <div id="mr-bar-6" class="bar">
+                                                <div class="rain-fill" style="height: 25%;"></div>
+                                                <div class="sun-fill" style="height: 35%;"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto p-0">
+                                            <div id="mr-bar-7" class="bar">
+                                                <div class="rain-fill" style="height: 25%;"></div>
+                                                <div class="sun-fill" style="height: 65%;"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto p-0">
+                                            <div id="mr-bar-8" class="bar">
+                                                <div class="rain-fill" style="height: 15%;"></div>
+                                                <div class="sun-fill" style="height: 35%;"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto p-0">
+                                            <div id="mr-bar-9" class="bar">
+                                                <div class="rain-fill" style="height: 50%;"></div>
+                                                <div class="sun-fill" style="height: 15%;"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto p-0">
+                                            <div id="mr-bar-10" class="bar">
+                                                <div class="rain-fill" style="height: 40%;"></div>
+                                                <div class="sun-fill" style="height: 40%;"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto p-0">
+                                            <div id="mr-bar-11" class="bar">
+                                                <div class="rain-fill" style="height: 30%;"></div>
+                                                <div class="sun-fill" style="height: 30%;"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto p-0">
+                                            <div id="mr-bar-12" class="bar">
+                                                <div class="rain-fill" style="height: 60%;"></div>
+                                                <div class="sun-fill" style="height: 30%;"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div id="sunrise-sunset" class="container cd px-4 py-3 mt-3">
+                                <div class="row mb-3">
+                                    <h5 class="h5 col">Sunrise &amp; Sunset</h5>
+                                    <i class="fa fa-plus-circle gray-text col-1"></i>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="container cdy px-4 py-3">
+                                        <div class="row mb-3">
+                                            <div class="col">
+                                                <i class="fa fa-map-marker blue"></i>&nbsp;
+                                                <span class="h6">Dhaka</span>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fa fa-ellipsis-v blue"></i>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="row">
+                                                    <div class="col-auto m-2 p-0"><i
+                                                            class="wi wi-sunrise yellow h3"></i></div>
+                                                    <div class="col">
+                                                        <div class='gray-text'>Sunrise</div>
+                                                        <h6 class="h6 blue">4:40 AM</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="row">
+                                                    <div class="col-auto m-2 p-0"><i class="wi wi-sunset yellow h3"></i>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class='gray-text'>Sunset</div>
+                                                        <h6 class="h6 blue">6:53 AM</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="container cdy px-4 py-3 mt-2">
+                                        <div class="row mb-3">
+                                            <div class="col">
+                                                <i class="fa fa-map-marker blue"></i>&nbsp;
+                                                <span class="h6">Tokyo</span>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fa fa-ellipsis-v blue"></i>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="row">
+                                                    <div class="col-auto m-2 p-0"><i
+                                                            class="wi wi-sunrise yellow h3"></i></div>
+                                                    <div class="col">
+                                                        <div class='gray-text'>Sunrise</div>
+                                                        <h6 class="h6 blue">4:47 AM</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="row">
+                                                    <div class="col-auto m-2 p-0"><i class="wi wi-sunset yellow h3"></i>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class='gray-text'>Sunset</div>
+                                                        <h6 class="h6 blue">6:49 AM</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-5 blue">
+                                        <i class="fa fa-map-marker yellow"></i> Kabul
+                                    </div>
+                                    <div class="col-auto gray-text">
+                                        <i class="wi wi-sunrise yellow"></i> 5:00 AM
+                                    </div>
+                                    <div class="col-auto gray-text">
+                                        <i class="wi wi-sunset yellow"></i> 7:00 PM
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-5 blue">
+                                        <i class="fa fa-map-marker yellow"></i> Tirana
+                                    </div>
+                                    <div class="col-auto gray-text">
+                                        <i class="wi wi-sunrise yellow"></i> 5:31 AM
+                                    </div>
+                                    <div class="col-auto gray-text">
+                                        <i class="wi wi-sunset yellow"></i> 8:04 PM
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-5 blue">
+                                        <i class="fa fa-map-marker yellow"></i> Algiers
+                                    </div>
+                                    <div class="col-auto gray-text">
+                                        <i class="wi wi-sunrise yellow"></i> 5:50 AM
+                                    </div>
+                                    <div class="col-auto gray-text">
+                                        <i class="wi wi-sunset yellow"></i> 7:59 PM
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-xl-3 p-3 m-0 text-center sticky-top side-lg side-panel">
+                <div class="row justify-content-end d-flex flex-nowrap">
+                    <div class="col my-auto">
+                        <div class="search gray-text d-flex flex-nowrap align-content-center">
+                            <i class="fa fa-search h5 my-auto m-1 p-1"></i>
+                            <input type="text" placeholder="Search" class="search-input form-control">
+                            <i class="fa fa-map-marker h6 ci-b my-auto m-1"></i>
+                        </div>
+                    </div>
+                    <div class="col-auto my-auto">
+                        <i class="fa fa-bell-o gray-text h6"></i>
+                    </div>
+                    <div class="col-auto my-auto">
+                        <img src="images/dp.jpg" class="avatar">
+                    </div>
+                </div>
+                <div class="row w-card m-3 mx-auto white-text p-3 pb-4 text-center"
+                    style="background-image: url(images/bg-1.png); background-color:#6991F3;">
+                    <div class="h5" style="text-align: left;">
+                        <i class="fa fa-map-marker"></i> Dhaka <i class="fa fa-caret-down"></i>
+                    </div>
+                    <img src="images/weather/12.png">
+                    <div>Today, 14 April</div>
+                    <div style="font-size: 48pt; padding: 0px;">29°</div>
+                    <div>Sunny</div>
+                    <div class="row justify-content-around mx-auto">
+                        <div class="col-5 justify-content-end">
+                            <i class="wi wi-strong-wind"></i> Wind
+                        </div>
+                        <div class="col-1">|</div>
+                        <div class="col-5 justify-content-start">19km/h</div>
+                    </div>
+                    <div class="row justify-content-around mx-auto">
+                        <div class="col-5 justify-content-end">
+                            <i class="wi wi-raindrop"></i> Hum
+                        </div>
+                        <div class="col-1">|</div>
+                        <div class="col-5 justify-content-start">22%</div>
+                    </div>
+                </div>
+                <div class="row w-card mt-3 mx-auto white-text p-2"
+                    style="background-image: url(images/bg-3.png); background-color: #FF6AA1;">
+                    <div class="row m-0 p-0 justify-content-between">
+                        <div class="col-7 my-auto" style="white-space: nowrap; text-align: left;">
+                            <i class="wi wi-strong-wind"></i> Wind | 15km/h<br>
+                            <i class="wi wi-raindrop"></i> &nbsp;&nbsp;&nbsp;Hum&nbsp; | 28%
+                        </div>
+                        <div class="col-5 text-end">
+                            <div class="h5">
+                                <i class="fa fa-map-marker"></i> Tokyo <i class="fa fa-caret-down"></i>
+                            </div>
+                            <div style="font-size: 28pt;">26°</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row w-card mt-3 mx-auto white-text p-2"
+                    style="background-image: url(images/bg-2.png); background-color: #F9BB74;">
+                    <div class="row m-0 p-0 justify-content-between">
+                        <div class="col-7 justify-content-start my-auto" style="white-space: nowrap; text-align: left;">
+                            <i class="wi wi-strong-wind"></i> Wind | 17km/h<br>
+                            <i class="wi wi-raindrop"></i> &nbsp;&nbsp;&nbsp;Hum&nbsp; | 25%
+                        </div>
+                        <div class="col-5 text-end">
+                            <div class="h5">
+                                <i class="fa fa-map-marker"></i> NY <i class="fa fa-caret-down"></i>
+                            </div>
+                            <div style="font-size: 28pt;">31°</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+</body>
+
+</html>
